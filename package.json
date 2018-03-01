@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Template to create koa2 web server fastly with common middleware",
   "repository": "https://github.com/kiwiyan/koa-cli",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node src/app.js"
   },
   "author": "kiwiyan",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "art-template": "^4.12.2",
     "axios": "^0.17.1",
     "koa": "^2.4.1",
