@@ -36,7 +36,8 @@ app.use(koaBody()); // 解析post请求键值
 // 设置静态资源路径，可以在浏览器下直接访问public(默认)路径下的静态资源 如 http://localhost:3000/public/1.jpg
 app.use(staticServer(path.join(__dirname)));
 
-app.use(cors());
+
+app.use(cors({origin: config.passOrigin})); // 跨域请求资源白名单，默认通过所有域
 app.use(router.routes()).use(router.allowedMethods()); // 使用koa-router路由中间件
 
 
@@ -46,5 +47,6 @@ app.on('error', (err, next) => {
     ctx.response.body = err;
 });
 // 监听3000端口
-app.listen(config.System.server_port || 3000);
+app.listen(config.port || 3000);
 console.log('\x1B[32m%s\x1B[39m', 'Koa server start. Ctrl+click to open in browser : http://localhost:3000/');
+
