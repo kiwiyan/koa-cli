@@ -1,7 +1,7 @@
 {
   "name": "koa_all",
   "version": "1.0.0",
-  "description": "Template to create koa2 web server fastly with common middleware",
+  "description": "快速创建koa2服务的简单脚手架",
   "repository": "https://github.com/kiwiyan/koa-cli",
   "main": "src/app.js",
   "scripts": {
