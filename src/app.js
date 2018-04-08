@@ -33,11 +33,11 @@ app.use(async(ctx, next) => {
 
 app.use(koaBody()); // 解析post请求键值
 
-// 设置静态资源路径，可以在浏览器下直接访问public(默认)路径下的静态资源 如 http://localhost:3000/public/1.jpg
-app.use(staticServer(path.join(__dirname)));
+// 设置静态资源路径，可以在浏览器下直接访问public路径下的静态资源 如 http://localhost:3000/1.jpg
+app.use(staticServer(path.join(__dirname, '../public')));
 
 
-app.use(cors({origin: config.passOrigin})); // 跨域请求资源白名单，默认通过所有域
+app.use(cors({origin: config.passOrigin})); // 跨域请求资源白名单，不设参数则默认资源可通过所有域
 app.use(router.routes()).use(router.allowedMethods()); // 使用koa-router路由中间件
 
 
