@@ -22,7 +22,7 @@ router.post('/login', async (ctx, mext) => {
     ctx.response.body = `提交OK,你好${reqBody['name']}！`; 
 });
 
-// 返回请求的几口数据。在此中转豆瓣的api数据来测试。
+// 返回请求的接口数据。在此中转豆瓣的api数据来测试。
 router.get('/api/douban', async (ctx, next) => {
     const axios = require('axios');
     let url = 'https://api.douban.com/v2/movie/in_theaters';
