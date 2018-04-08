@@ -1,6 +1,7 @@
 # koa-cli
 基于koa2的创建restful风格api的脚手架。
 配置了路由，静态资源，跨域，模板引擎等基本常用设置，并且做了服务，路由，控制器，模板等的模板处理，可快速搭建服务。
+另外还有简略版[koa-cli](https://github.com/kiwiyan/koa-cli/tree/simple)，简化了配置，方便用于测试。
 
 ## use
 ```
