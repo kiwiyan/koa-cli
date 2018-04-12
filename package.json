@@ -1,5 +1,5 @@
 {
-  "name": "koa_all",
+  "name": "koa-cli",
   "version": "1.0.0",
   "description": "快速创建koa2服务的简单脚手架",
   "repository": "https://github.com/kiwiyan/koa-cli",

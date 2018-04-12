@@ -4,9 +4,10 @@ const path = require('path');
 const staticServer = require('koa-static');
 const koaBody = require('koa-body');
 const render = require('koa-art-template');
-const config = require('./config/index');
+const config = require('./config/test');
 const cors = require('@koa/cors');
 
+const port = 3000;
 const app = new Koa();
 
 
@@ -47,6 +48,7 @@ app.on('error', (err, next) => {
     ctx.response.body = err;
 });
 // 监听3000端口
-app.listen(config.port || 3000);
-console.log('\x1B[32m%s\x1B[39m', 'Koa server start. Ctrl+click to open in browser : http://localhost:3000/');
+
+app.listen(config.port || port);
+console.log('\x1B[32m%s\x1B[39m', `Koa server start. Ctrl+click to open in browser : http://localhost:${port}/`);
 
