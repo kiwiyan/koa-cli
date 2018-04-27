@@ -5,7 +5,8 @@
   "repository": "https://github.com/kiwiyan/koa-cli",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "test": "node src/test/index.js"
   },
   "author": "kiwiyan",
   "license": "ISC",
@@ -17,7 +18,8 @@
     "koa-art-template": "^1.1.1",
     "koa-body": "^2.5.0",
     "koa-router": "^7.3.0",
-    "koa-static": "^4.0.2"
+    "koa-static": "^4.0.2",
+    "mongoose": "^5.0.15"
   },
   "engines": {
     "node": "8.9.4"

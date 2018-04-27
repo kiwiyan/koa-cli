@@ -7,8 +7,14 @@ const render = require('koa-art-template');
 const config = require('./config/test');
 const cors = require('@koa/cors');
 
+const connect = require('./model/connect');
+
 const port = 3000;
 const app = new Koa();
+
+// connect('mongodb://localhost:27017/test'); //测试本地： mongodb的默认端口是27017
+
+connect('mongodb://192.168.182.85:32017/test'); //测试本地： mongodb的默认端口是27017
 
 
 // 设置模板引擎，此处引用art-template模板
