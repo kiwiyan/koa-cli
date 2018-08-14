@@ -5,15 +5,6 @@ const connect = require('../model/connect');
 
 connect('mongodb://192.168.182.85:32017/test'); //测试本地： mongodb的默认端口是27017
 
-// find
-// Collection.Answer.findOne({name: 'rose'}, (err, docs) => {
-//     if (err) {
-//         console.log('err:', err)
-//         return '';
-//     }
-//     console.log('docs:', docs)
-// })
-
 // add
 let answerReal = new  Collection.AnswerReal({
     iwixinId: 'kiwiBoyi',
