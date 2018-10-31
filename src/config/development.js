@@ -1,8 +1,8 @@
 module.exports = {
-    env: 'test',
+    env: 'development',
     port: 3000,
     passOrigin: ['http://localhost:4000'], //  跨域白名单
-    database: 'mongodb://username:password@address/storename',
+    database: '',
     email: {
         service: 'smtp.abcd.com', // SMTP服务提供商域名
         username: 'postmaster%40abcd.com', // 用户名/用户邮箱

@@ -4,7 +4,7 @@ const path = require('path');
 const staticServer = require('koa-static');
 const koaBody = require('koa-body');
 const render = require('koa-art-template');
-const config = require('./config/test');
+const config = require('./config');
 const cors = require('@koa/cors');
 
 const connect = require('./model/connect');
@@ -14,8 +14,7 @@ const app = new Koa();
 
 // connect('mongodb://localhost:27017/test'); //测试本地： mongodb的默认端口是27017
 
-connect('mongodb://192.168.182.85:32017/test'); //测试本地： mongodb的默认端口是27017
-
+connect(`${config.database}`);
 
 // 设置模板引擎，此处引用art-template模板
 render(app, {
@@ -43,8 +42,13 @@ app.use(koaBody()); // 解析post请求键值
 // 设置静态资源路径，可以在浏览器下直接访问public路径下的静态资源 如 http://localhost:3000/1.jpg
 app.use(staticServer(path.join(__dirname, '../public')));
 
-
-app.use(cors({origin: config.passOrigin})); // 跨域请求资源白名单，不设参数则默认资源可通过所有域
+// 跨域请求资源白名单，不设参数则默认资源可通过所有域
+app.use(cors({origin: ctx => {
+    if (!config.passOrigin.includes(ctx.origin)) {
+        return false;
+    }
+    return '*';
+}})); 
 app.use(router.routes()).use(router.allowedMethods()); // 使用koa-router路由中间件
 
 
