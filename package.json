@@ -13,7 +13,6 @@
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "art-template": "^4.12.2",
-    "axios": "^0.17.1",
     "koa": "^2.4.1",
     "koa-art-template": "^1.1.1",
     "koa-body": "^2.5.0",

@@ -1,9 +1,10 @@
 
 const Collection = require('../model');
 const connect = require('../model/connect');
+const config = require('../config');
 
 
-connect('mongodb://192.168.182.85:32017/test'); //测试本地： mongodb的默认端口是27017
+connect(config.database); //测试本地 mongodb的默认端口是27017  
 
 // add
 let answerReal = new  Collection.AnswerReal({
@@ -18,6 +19,6 @@ answerReal.save((err, doc) => {
     if (err) {
         console.log('保存失败')
     } else {
-        console.log('save ok: ', doc)
+        console.log('save ok: ', doc);
     }
 })

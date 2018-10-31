@@ -9,11 +9,10 @@ const cors = require('@koa/cors');
 
 const connect = require('./model/connect');
 
-const port = 3000;
 const app = new Koa();
 
-// connect('mongodb://localhost:27017/test'); //测试本地： mongodb的默认端口是27017
-
+// 链接数据库
+// connect('mongodb://localhost:27017/test'); //测试本地  mongodb的默认端口是27017
 connect(`${config.database}`);
 
 // 设置模板引擎，此处引用art-template模板
@@ -37,7 +36,8 @@ app.use(async(ctx, next) => {
     }
 })
 
-app.use(koaBody()); // 解析post请求键值
+// 解析post请求键值
+app.use(koaBody()); 
 
 // 设置静态资源路径，可以在浏览器下直接访问public路径下的静态资源 如 http://localhost:3000/1.jpg
 app.use(staticServer(path.join(__dirname, '../public')));
@@ -49,7 +49,9 @@ app.use(cors({origin: ctx => {
     }
     return '*';
 }})); 
-app.use(router.routes()).use(router.allowedMethods()); // 使用koa-router路由中间件
+
+// 使用koa-router路由中间件
+app.use(router.routes()).use(router.allowedMethods()); 
 
 
 // 错误处理
@@ -57,8 +59,8 @@ app.on('error', (err, next) => {
     console.log('event err:', err);
     ctx.response.body = err;
 });
-// 监听3000端口
 
-app.listen(config.port || port);
-console.log('\x1B[32m%s\x1B[39m', `Koa server start. Ctrl+click to open in browser : http://localhost:${port}/`);
+// 监听端口
+app.listen(config.port);
+console.log('\x1B[32m%s\x1B[39m', `Koa server start. Ctrl+click to open in browser : http://localhost:${config.port}/`);
 

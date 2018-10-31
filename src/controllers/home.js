@@ -4,6 +4,7 @@ const userService = require('../service/userService');
 const Collection = require('../model');
 
 module.exports = {
+    // 首页模板渲染页面
     async homePage(ctx, next) {
         
         ctx.render('home', {
@@ -11,16 +12,7 @@ module.exports = {
             body: 'hello koa2'
         });
     },
-    // 使用async的方式处理异步数据
-    // 在这里中转处理豆瓣电影排行榜数据
-    async dealDoubanApi(ctx, next) {
-        let url = 'https://api.douban.com/v2/movie/in_theaters';
 
-        let data = await axios.get(url); // 使用axios处理请求
-        let resData = data.data;
-        resData.addKey = '尾部新添加的数据';
-        ctx.body = resData;
-    },
     async f1(ctx, next) {
         let id = 'x1';
         let userInfo = userService.getUserById(id);

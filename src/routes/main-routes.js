@@ -13,6 +13,4 @@ router.get('/login', login.loginPage);
 router.post('/login', login.loginPost);
 
 
-router.get('/api', home.dealDoubanApi);
-
 module.exports = router;
